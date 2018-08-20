@@ -1,0 +1,105 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif;
+  margin: 2em;
+  background-image: url('https://cdn.glitch.com/project-avatar/809cc200-9f7d-4055-a1df-e80056e62121.png?1534227505611')
+}
+
+p {
+  max-width: 600px;
+}
+
+input {
+  display: block;
+  margin-bottom: 10px;
+  padding: 5px;
+  width: 100%;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  font-size: 16px;
+}
+
+li {
+  margin-bottom: 5px;
+}
+
+section {
+  margin-bottom: 25px;
+  padding: 15px;
+  display: inline-block;
+  width: 100%;
+  max-width: 340px;
+  border-radius: 3px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.cancela,.cancela:link,.cancela:visited,.cancela:hover,.cancela:focus,.cancela:active{
+    color: inherit;
+    text-decoration: none;
+}
+
+.bttn {
+  font-size: 16px;
+  border-radius: 3px;
+  background-color: lightgrey;
+  border: 1px solid grey;
+  padding: 1px 6px;
+  box-shadow: 2px 2px teal;
+  cursor: pointer;
+}
+
+.bttn:hover {
+  background-color: yellow;
+}
+
+.bttn:active {
+  box-shadow: none;
+}
+
+.del {
+  color: black;
+}
+
+.item {
+  color: white;
+  padding-left: 15px;
+}
+
+.logo {
+  font-style: italic;
+  color: #624ec4 !important;
+  background-size: 100px;
+  text-shadow:
+    -1px -1px 0 #d0c6ff,
+    1px -1px 0 #d0c6ff,
+    -1px 1px 0 #d0c6ff,
+    1px 1px 0 #d0c6ff;
+}
+
+.mssg {
+  border-radius: 3px;
+  padding: 6px 3px;
+  margin: 6px 3px;
+  text-align: center;
+}
+
+.mssg-succ {
+  background-color: #13ff7c;
+  color: green;
+}
+
+.mssg-errr {
+  background-color: #ff4444;
+  color: white;
+}
+
+#dreams {
+  background-color: #ff60cf;
+}
+
