@@ -1,0 +1,7 @@
+extends layout
+
+block content
+  section(style='background-color:cyan')
+    form(method='POST' action='/dreams/add')
+        input(name='dream', type='text', maxlength='100', placeholder='Tell me yo dream!')
+        button.bttn#submit-dream(type='submit') Submit Dream

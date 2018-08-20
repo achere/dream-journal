@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  section#dreams
+    a.cancela.bttn(href='/dreams/add') Add Dream
+    != messages('message', locals)
+    ul
+  script(src='/client.js')
