@@ -35,6 +35,15 @@ section {
   border-radius: 3px;
 }
 
+textarea[name=description] {
+  resize: vertical;
+  width: 100%;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  font-size: 14px;
+  font-family: inherit;
+}
+
 .bold {
   font-weight: bold;
 }
@@ -62,13 +71,24 @@ section {
   box-shadow: none;
 }
 
+.bttn-red {
+  background-color: salmon;
+}
+
 .del {
   color: black;
+  float:right;
 }
 
 .item {
   color: white;
-  padding-left: 15px;
+  padding: 3px;
+  border: 1px dotted rgba(0,0,0,0);
+  border-radius: 3px;
+}
+
+.item:hover {
+  border-color: white;
 }
 
 .logo {
@@ -99,7 +119,16 @@ section {
   color: white;
 }
 
+/*index*/
 #dreams {
   background-color: #ff60cf;
 }
 
+#container {
+  margin-top: 5px;
+}
+
+/*dream*/
+#delete {
+  float: right;
+}
