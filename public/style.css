@@ -109,6 +109,10 @@ textarea[name=description] {
   text-align: center;
 }
 
+.mssg:hover {
+  cursor: pointer;
+}
+
 .mssg-succ {
   background-color: #13ff7c;
   color: green;
