@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  section(style='background-color:PeachPuff')
+    != messages('message', locals)
+    form(method='POST' action='/users/login')
+      label Username
+      input(name='username', type='text', maxlength='20' value=username autofocus)
+      label Password
+      input(name='password', type='password', maxlength='20')
+      button.bttn#submit-dream(type='submit') Login
+      a.cancela.bttn(href='/users/register' style='float:right') Register

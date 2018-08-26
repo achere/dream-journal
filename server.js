@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 app.use(session({
   secret: 'keyboard cat',
   resave: true,
-  saveUninitialized: true,
+  saveUninitialized: true
 }));
 
 //express-messages middleware
@@ -33,11 +33,8 @@ app.set('view engine', 'pug');
 app.use(express.static('public'));
 
 // init sqlite db
-const fs = require('fs');
-const dbFile = './.data/sqlite.db';
-const exists = fs.existsSync(dbFile);
 const sqlite3 = require('sqlite3').verbose();
-const db = new sqlite3.Database(dbFile);
+const db = new sqlite3.Database('./.data/sqlite.db');
 
 // http://expressjs.com/en/starter/basic-routing.html
 app.get('/', function(request, response) {
@@ -52,9 +49,11 @@ app.get('/getDreams', function(request, response) {
   });
 });
 
-// add routes from file
+// add routes from files
 const dreams = require('./routes/dreams');
+const users = require('./routes/users');
 app.use('/dreams', dreams);
+app.use('/users', users);
 
 // listen for requests :)
 const listener = app.listen(process.env.PORT, function() {

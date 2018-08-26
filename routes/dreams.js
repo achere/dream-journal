@@ -3,11 +3,8 @@ const router = express.Router();
 const session = require('express-session');
 const flash = require('connect-flash');
 const { check, validationResult } = require('express-validator/check');
-const fs = require('fs');
-const dbFile = './.data/sqlite.db';
-const exists = fs.existsSync(dbFile);
 const sqlite3 = require('sqlite3').verbose();
-const db = new sqlite3.Database(dbFile);
+const db = new sqlite3.Database('./.data/sqlite.db');
 
 router.get('/add', function(request,response) {
   response.render('add_dream');
@@ -26,10 +23,8 @@ router.post('/add', [
     response.render('add_dream', {} = request.body);
   } else {
     console.log('Adding dream:', request.body.dream);
-    //db.serialize(() => {
-      const insert = db.prepare('INSERT INTO Dreams (dream, description) VALUES ((?), (?))');
-      insert.run([request.body.dream, request.body.description]);
-    //});
+    const insert = db.prepare('INSERT INTO Dreams (dream, description) VALUES (?, ?)');
+    insert.run([request.body.dream, request.body.description]);
     request.flash('succ', 'Dream added');
     response.redirect('/');
   }
@@ -73,9 +68,7 @@ router.post('/:id',
 
 router.delete('/:id', function(request, response) {
   console.log('Deleting dream id =', request.params.id);
-  //db.serialize(() => {
-    db.run(`DELETE FROM Dreams WHERE id = ${request.params.id}`);
-  //});
+  db.run(`DELETE FROM Dreams WHERE id = ${request.params.id}`);
   request.flash('succ', 'Dream removed');
   response.sendStatus(200);
 });

@@ -1,8 +1,12 @@
 extends layout
 
 block content
-  section#dreams
+  section#dreams(style='background-color:MediumPurple')
     a.cancela.bttn(href='/dreams/add') Add Dream
+    span  
+    a.cancela.bttn(href='/users/login') Login
+    span  
+    a.cancela.bttn(href='/users/register') Register
     != messages('message', locals)
     div#container
   script(src='/client.js')
