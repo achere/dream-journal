@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  section(style='background-color:Lime')
+    != messages('message', locals)
+    form(method='POST' action='/users/register')
+      label Username
+      input(name='username', type='text', maxlength='20', placeholder='dreamer69' value=username autofocus)
+      label Password
+      input(name='password', type='password', maxlength='20', placeholder='*******')
+      label Confirm Password
+      input(name='password2', type='password', maxlength='20', placeholder='*******')
+      label Email - optional
+      input(name='email', type='text', maxlength='50', placeholder='dreamer69@plyusha.glitch.me' value=email)
+      button.bttn#submit-dream(type='submit') Register
+      a.cancela.bttn(href='/users/login' style='float:right') Login

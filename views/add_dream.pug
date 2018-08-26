@@ -1,7 +1,9 @@
 extends layout
 
 block content
-  section(style='background-color:cyan')
+  section(style='background-color:mediumspringgreen')
+    != messages('message', locals)
     form(method='POST' action='/dreams/add')
-        input(name='dream', type='text', maxlength='100', placeholder='Tell me yo dream!')
-        button.bttn#submit-dream(type='submit') Submit Dream
+      input(name='dream', type='text', maxlength='100', placeholder='Tell me yo dream!' value=dream autofocus)
+      textarea(name='description') #{description}
+      button.bttn#submit-dream(type='submit') Submit Dream

@@ -1,9 +1,12 @@
 dependencies:
+  bcryptjs: 2.4.3
   connect-flash: 0.1.1
   express: 4.16.3
   express-messages: 1.0.1
   express-session: 1.15.6
   express-validator: 5.3.0
+  passport: 0.4.0
+  passport-local: 1.0.0
   pug: 2.0.3
   sqlite3: 4.0.2
 packages:
@@ -156,6 +159,10 @@ packages:
     optional: true
     resolution:
       integrity: sha1-pDAdOJtqQ/m2f/PKEaP2Y342Dp4=
+  /bcryptjs/2.4.3:
+    dev: false
+    resolution:
+      integrity: sha1-mrVie5PmBiH/fNrF2pczAn3x0Ms=
   /body-parser/1.18.2:
     dependencies:
       bytes: 3.0.0
@@ -997,6 +1004,29 @@ packages:
       node: '>= 0.8'
     resolution:
       integrity: sha1-/CidTtiZMRlGDBViUyYs3I3mW/M=
+  /passport-local/1.0.0:
+    dependencies:
+      passport-strategy: 1.0.0
+    dev: false
+    engines:
+      node: '>= 0.4.0'
+    resolution:
+      integrity: sha1-H+YyaMkudWBmJkN+O5BmYsFbpu4=
+  /passport-strategy/1.0.0:
+    dev: false
+    engines:
+      node: '>= 0.4.0'
+    resolution:
+      integrity: sha1-tVOaqPwiWj0a0XlHbd8ja0QPUuQ=
+  /passport/0.4.0:
+    dependencies:
+      passport-strategy: 1.0.0
+      pause: 0.0.1
+    dev: false
+    engines:
+      node: '>= 0.4.0'
+    resolution:
+      integrity: sha1-xQlWkTR71a07XhgCOMORTRbwWBE=
   /path-is-absolute/1.0.1:
     dev: false
     engines:
@@ -1011,6 +1041,10 @@ packages:
     dev: false
     resolution:
       integrity: sha1-32BBeABfUi8V60SQ5yR6G/qmf4w=
+  /pause/0.0.1:
+    dev: false
+    resolution:
+      integrity: sha1-HUCLP9t2kjuVQ9lvtMnf1TXZy10=
   /performance-now/2.1.0:
     dev: false
     resolution:
@@ -1583,10 +1617,13 @@ registry: 'https://registry.npmjs.org/'
 shrinkwrapMinorVersion: 8
 shrinkwrapVersion: 3
 specifiers:
+  bcryptjs: ^2.4.3
   connect-flash: ^0.1.1
   express: ^4.16.3
   express-messages: ^1.0.1
   express-session: ^1.15.6
   express-validator: ^5.3.0
+  passport: ^0.4.0
+  passport-local: ^1.0.0
   pug: ^2.0.3
   sqlite3: ^4.0.2

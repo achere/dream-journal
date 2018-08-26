@@ -1,5 +1,12 @@
 extends layout
 
 block content
-  section#dreams
-    p #{dream}
+  section(style='background-color: cyan')
+    != messages('message', locals)
+    form(method='POST' action='/dreams/'+id)
+      input(type='text' name='dream' value=dream autofocus)
+      textarea(name='description') #{description}
+      br
+      button.bttn(type='submit') Save Dream
+      button.bttn.bttn-red#delete(type='button') Remove Dream
+  script(src='/client.js')

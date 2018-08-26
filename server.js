@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 app.use(session({
   secret: 'keyboard cat',
   resave: true,
-  saveUninitialized: true,
+  saveUninitialized: true
 }));
 
 //express-messages middleware
@@ -33,31 +33,8 @@ app.set('view engine', 'pug');
 app.use(express.static('public'));
 
 // init sqlite db
-const fs = require('fs');
-const dbFile = './.data/sqlite.db';
-const exists = fs.existsSync(dbFile);
 const sqlite3 = require('sqlite3').verbose();
-const db = new sqlite3.Database(dbFile);
-
-const addDream = function(request, response) {
-  console.log('Adding dream:', request.body.dream);
-  //db.serialize(() => {
-    const insert = db.prepare('INSERT INTO Dreams (dream) VALUES (?)');
-    insert.run(request.body.dream);
-  //});
-  request.flash('succ', 'Dream added');
-  response.redirect('/');
-  //response.sendStatus(200);
-};
-
-const removeDream = function (request, response) {
-  console.log('Removing dream id =', request.query.id);
-  //db.serialize(() => {
-    db.run(`DELETE FROM Dreams WHERE id = ${request.query.id}`);
-  //});
-  request.flash('succ', 'Dream removed');
-  response.sendStatus(200);
-};
+const db = new sqlite3.Database('./.data/sqlite.db');
 
 // http://expressjs.com/en/starter/basic-routing.html
 app.get('/', function(request, response) {
@@ -72,32 +49,11 @@ app.get('/getDreams', function(request, response) {
   });
 });
 
-app.get('/dreams/add', function(request,response) {
-  response.render('add_dream');
-});
-
-app.post('/dreams/add', addDream);
-
-app.post('/addDream', addDream);
-
-app.delete('/remDream', removeDream);
-
-//app.delete('dreams/remove', removeDream); not implemented
-
-app.get('/dreams/:id', function(request, response) {
-  const select= db.prepare('SELECT id, dream FROM Dreams WHERE id=(?)');
-  select.get(request.params.id, function(err, row) {
-    if (err || row == undefined) {
-      request.flash('errr', 'There\' no such dream');
-      response.redirect('/');
-    } else {
-      response.render('dream', {
-        dream: row.dream,
-        id: row.id
-      });
-    }
-  });
-});
+// add routes from files
+const dreams = require('./routes/dreams');
+const users = require('./routes/users');
+app.use('/dreams', dreams);
+app.use('/users', users);
 
 // listen for requests :)
 const listener = app.listen(process.env.PORT, function() {
