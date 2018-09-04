@@ -1,0 +1,27 @@
+mixin radio(title, num)
+    input(id='luc'+num, type='radio', name='lucidity',
+      value=title.toLowerCase(), checked=(lucidity===title.toLowerCase()))
+    label(for='luc'+num)= title
+    br
+
+input(name='title', type='text', maxlength='100', placeholder='Tell me yo dream!' value=title autofocus)
+fieldset#datetimes
+  legend Date and Time
+  input#date(name='date', type='date', value=date)
+  br
+  input.time#since(name='timesince', type='time' value=timesince)
+  span &nbsp;-&nbsp;
+  input.time#until(name='timeuntil', type='time' value=timeuntil)
+fieldset#lucidity
+  legend Lucidity
+  each index, val in {1: 'None', 2: 'MILD', 3: 'WILD'}
+    +radio(index,val)
+br
+fieldset#setting
+  legend Setting - optional
+  input(list='settings' name='setting' value=setting)
+  datalist#settings
+    option(value='City')
+    option(value='Country')
+    option(value='Nature')
+textarea(name='description') #{description}

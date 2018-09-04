@@ -1,12 +1,17 @@
 extends layout
 
 block content
-  section#dreams(style='background-color:MediumPurple')
-    a.cancela.bttn(href='/dreams/add') Add Dream
-    span  
-    a.cancela.bttn(href='/users/login') Login
-    span  
-    a.cancela.bttn(href='/users/register') Register
-    != messages('message', locals)
-    div#container
-  script(src='/client.js')
+  section#dreams(style='background-color:MediumPurple; max-width: 800px') 
+    if user
+      a.cancela.bttn(href='/dreams/add') Add Dream
+      span 
+      a.cancela.bttn(href='/users/logout') Logout
+      != messages('message', locals)
+      div#container
+    else
+      a.cancela.bttn(href='/users/login') Login
+      span  
+      a.cancela.bttn(href='/users/register') Register
+      p You need to be logged in to use the app
+      img.img-inline(src='https://cdn.glitch.com/809cc200-9f7d-4055-a1df-e80056e62121%2Fplyu.png?1535371222019')
+    script(src='/client.js')

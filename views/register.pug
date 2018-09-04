@@ -1,12 +1,12 @@
 extends layout
 
 block content
-  section(style='background-color:Lime')
+  section(style='background-color:MediumAquamarine')
     != messages('message', locals)
     form(method='POST' action='/users/register')
       label Username
       input(name='username', type='text', maxlength='20', placeholder='dreamer69' value=username autofocus)
-      label Password
+      label Password - at least 6 chars
       input(name='password', type='password', maxlength='20', placeholder='*******')
       label Confirm Password
       input(name='password2', type='password', maxlength='20', placeholder='*******')
