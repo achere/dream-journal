@@ -1,12 +1,12 @@
 extends layout
 
 block content
-  section(style='background-color: cyan')
+  section#dreamsec(style='background-color:SkyBlue')
     != messages('message', locals)
-    form(method='POST' action='/dreams/'+id)
-      input(type='text' name='dream' value=dream autofocus)
-      textarea(name='description') #{description}
-      br
+    form(method='POST' action='/dreams/'+_id)
+    
+      include dream_form
+      
       button.bttn(type='submit') Save Dream
       button.bttn.bttn-red#delete(type='button') Remove Dream
   script(src='/client.js')

@@ -6,6 +6,7 @@ const app = express();
 const session = require('express-session');
 const flash = require('connect-flash');
 const { check, validationResult } = require('express-validator/check');
+const passport = require('passport');
 
 //body-parser middleware
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -32,21 +33,19 @@ app.set('view engine', 'pug');
 // http://expressjs.com/en/starter/static-files.html
 app.use(express.static('public'));
 
-// init sqlite db
-const sqlite3 = require('sqlite3').verbose();
-const db = new sqlite3.Database('./.data/sqlite.db');
+//passport config and middleware
+require('./passport')(passport);
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.get('*', function(request, response, next) {
+  response.locals.user = request.user || null;
+  next();
+});
 
 // http://expressjs.com/en/starter/basic-routing.html
 app.get('/', function(request, response) {
   response.render('index');
-});
-
-// endpoint to get all the dreams in the database
-// read the sqlite3 module docs and try to add your own! https://www.npmjs.com/package/sqlite3
-app.get('/getDreams', function(request, response) {
-  db.all('SELECT * from Dreams', function(err, rows) {
-    response.send(JSON.stringify(rows));
-  });
 });
 
 // add routes from files

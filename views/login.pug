@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  section(style='background-color:PeachPuff')
+  section(style='background-color:PeachPuff;max-width:fit-content')
     != messages('message', locals)
     form(method='POST' action='/users/login')
       label Username

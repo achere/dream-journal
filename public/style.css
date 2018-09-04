@@ -8,10 +8,6 @@ body {
   background-image: url('https://cdn.glitch.com/project-avatar/809cc200-9f7d-4055-a1df-e80056e62121.png?1534227505611')
 }
 
-p {
-  max-width: 600px;
-}
-
 input {
   display: block;
   margin-bottom: 10px;
@@ -42,6 +38,7 @@ textarea[name=description] {
   border-radius: 3px;
   font-size: 14px;
   font-family: inherit;
+  min-height:100px;
 }
 
 .bold {
@@ -78,6 +75,12 @@ textarea[name=description] {
 .del {
   color: black;
   float:right;
+}
+
+.img-inline {
+  width:100%;
+  height:auto;
+  border-radius: 5px;
 }
 
 .item {
@@ -118,18 +121,101 @@ textarea[name=description] {
   color: green;
 }
 
-.mssg-errr {
+.mssg-errr, .mssg-error {
   background-color: #ff4444;
   color: white;
 }
 
 /*index*/
+.expand {
+  max-height: 55px;
+  overflow-y: hidden;
+}
+.readmore {
+  margin-left: 5px;
+}
+.title {
+  font-size: 18px;
+  margin-bottom: 5px;
+}  
+.datetimes {
+  font-size: 14px;
+}
+
+.link {
+  color: lightblue;
+}
+
+.link:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.gradient {
+  background: -webkit-linear-gradient(#fff, #fff, rgba(0,0,0,0));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
 #container {
   margin-top: 5px;
 }
 
+#container div {
+  color: white;
+  margin: 30px 10px;
+}
+#container div p {
+  margin: 5px;
+  text-indent: 2rem;
+  text-align: justify;
+}
+
+
+#container div a {
+  float: right;
+}
+
 /*dream*/
 #delete {
   float: right;
+}
+
+/*add_dream*/
+
+fieldset {
+  padding-bottom: 0;
+  border: 1px solid MintCream;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  display: inline;
+}
+
+fieldset * {
+  display: inline-block;
+}
+
+datalist {
+  display: none;
+}
+
+input[name=title] {
+  width: 300px;
+}
+input[type=radio] {
+  width: auto;
+}
+
+.time {
+  width: auto;
+  font-family: inherit;
+}
+
+#date {
+  font-family: inherit;
+  width: auto;
+}
+
+#dreamsec {
+  max-width: 400px;
 }
