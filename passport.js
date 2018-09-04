@@ -1,7 +1,7 @@
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcryptjs');
 const mongoose = require('mongoose');
-mongoose.connect(`mongodb://${process.env.dbuser}:${process.env.dbpassword}@${process.env.dburi}`, { useNewUrlParser: true });
+mongoose.connect(process.env.db, { useNewUrlParser: true });
 const User = require('./models/user');
 
 module.exports = function(passport) {
